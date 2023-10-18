@@ -44,8 +44,6 @@ function save()
         var formData        = $(form).serializeArray(); //array
         var route           = $(form).attr('action'); //เรียกใช้ attribute actionในไฟล์ html
 
-
-
         //เรียกใช้ Ajax
         $.ajax({
             type : "POST", // ส่งผ่านฟอร์มและส่งข้อมูลมาก
@@ -97,20 +95,20 @@ function get() //edit
             success: function(response){//เมื่อประมวลผลเสร็จแล้วให้แสดงผลต่อตามคำสั่งนี้
                 response = JSON.parse(response);
                 $("#edit-form [name=\"id\"]").val(response.id);
-                $("#edit-form [name=\"sample\"]");
-                $("#edit-form [name=\"title\"]");
-                $("#edit-form [name=\"first_name\"]");
-                $("#edit-form [name=\"surname\"]");
-                $("#edit-form [name=\"age\"]");
-                $("#edit-form [name=\"ocdr\"]");
-                $("#edit-form [name=\"mmse\"]");
-                $("#edit-form [name=\"blood_collection\"]");
-                $("#edit-form [name=\"report_date\"]");
-                $("#edit-form [name=\"source\"]");
-                $("#edit-form [name=\"tel\"]");
-                $("#edit-form [name=\"teltwo\"]");
-                $("#edit-form [name=\"line\"]");
-                $("#edit-form [name=\"creation_date\"]");
+                $("#edit-form [name=\"sample\"]").val(response.sample);
+                $("#edit-form [name=\"title\"]").val(response.title);
+                $("#edit-form [name=\"first_name\"]").val(response.first_name);
+                $("#edit-form [name=\"surname\"]").val(response.surname);
+                $("#edit-form [name=\"age\"]").val(response.age);
+                $("#edit-form [name=\"ocdr\"]").val(response.ocdr);
+                $("#edit-form [name=\"mmse\"]").val(response.mmse);
+                $("#edit-form [name=\"blood_collection\"]").val(response.blood_collection);
+                $("#edit-form [name=\"report_date\"]").val(response.report_date);
+                $("#edit-form [name=\"source\"]").val(response.source);
+                $("#edit-form [name=\"tel\"]").val(response.tel);
+                $("#edit-form [name=\"teltwo\"]").val(response.teltwo);
+                $("#edit-form [name=\"lineid\"]").val(response.lineid);
+                $("#edit-form [name=\"creation_date\"]").val(response.creation_date);
             }
         });
     });
