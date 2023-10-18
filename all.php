@@ -1,7 +1,7 @@
 <?php
     $servername = "localhost" ; 
     $username = "root" ;
-    $password = "";
+    $password = "root";
     $dbname = "apptest";
 
     $mysqli = new mysqli($servername, $username , $password, $dbname);
@@ -22,9 +22,6 @@
     $mysqli->close();
 
     echo json_encode($row);
-
-
-
 
 
 

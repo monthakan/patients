@@ -41,7 +41,7 @@ CREATE TABLE `patients` (
   `source` varchar(250) NOT NULL,
   `tel` int(10) NULL,
   `teltwo` int(10)  NULL,
-  `line` varchar(18) NOT NULL,
+  `lineid` varchar(18) NOT NULL,
   `creation_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

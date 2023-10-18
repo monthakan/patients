@@ -1,6 +1,6 @@
 <?php
     $request = $_REQUEST; //a PHP Super Global variable which used to collect data after submitting it from the form
-    $ID = $request['id']; //using it to get  the record
+   // $ID = $request['id']; //using it to get  the record
     $sample = $request['sample'];
     $title = $request['title'];
     $first_name = $request['first_name'];
@@ -8,18 +8,18 @@
     $age = $request['age'];
     $ocdr = $request['ocdr'];
     $mmse = $request['mmse'];
-    $blood_collection = $request['blood_collection'];
-    $report_date = $request['report_date'];
-    $source = $request['source'];
+    $blood_collection = date('Y-m-d', $request['blood_collection']);
+    $report_date = date('Y-m-d', $request['report_date']);
+    $source = $request['$source'];
     $tel = $request['tel'];
     $teltwo = $request['teltwo'];
-    $line = $request['line'];
-    $record_date = $request['date_record'];
+    $lineid = $request['lineid'];
+    // $creation_date = $request['creation_date']; 
    
     // set
     $servername = "localhost" ; 
     $username = "root" ;
-    $password = "";
+    $password = "root";
     $dbname = "apptest";
 
     $mysqli = new mysqli($servername, $username, $password, $dbname);
@@ -29,8 +29,8 @@
         exit();
       }
 
-      $sql = "INSERT INTO patients ( sample, title, first_name, surname, age, ocdr, mmse, blood_collection, report_date, source, tel, teltwo, line, date_record)
-      VALUES ('".$sample."', '".$title."', '".$first_name."', '".$surname."', '".$age."','".$ocdr."','".$mmse."' ,'".$blood_collection."', '".$report_date."','".$source."','".$tel."','".$teltwo."' ,'".$line."', '".$record_date."')";
+      $sql = "INSERT INTO patients (sample, title, first_name, surname, age, ocdr, mmse, blood_collection, report_date, source, tel, teltwo, lineid)
+      VALUES ('".$sample."', '".$title."', '".$first_name."', '".$surname."', '".$age."','".$ocdr."','".$mmse."' ,'".$blood_collection."', '".$report_date."','".$source."','".$tel."','".$teltwo."' ,'".$lineid."')";
     
       // Process the query so that we will save the date of birth
       if ($mysqli->query($sql)) {

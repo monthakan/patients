@@ -13,13 +13,13 @@
      $source = $request['source'];
      $tel = $request['tel'];
      $teltwo = $request['teltwo'];
-     $line = $request['line'];
+     $lineid = $request['lineid'];
      $record_date = $request['date_record'];
     
      // set
      $servername = "localhost" ; 
      $username = "root" ;
-     $password = "";
+     $password = "root";
      $dbname = "apptest";
  
      $mysqli = new mysqli($servername, $username, $password, $dbname);
@@ -33,7 +33,7 @@
      surname='".$surname."', first_name='".$first_name."', age='".$age."',
      ocdr='".$ocdr."',mmse='".$mmse."', blood_collection='".$blood_collection."', 
      report_date='".$report_date."',source='".$source."',tel='".$tel."', teltwo='".$teltwo."',
-     line='".$line."',record_date='".$record_date."' WHERE id='".$id."'";
+     lineid='".$lineid."',record_date='".$record_date."' WHERE id='".$id."'";
 
 	// Process the query so that we will save the date of birth
 	if ($mysqli->query($sql)) {
