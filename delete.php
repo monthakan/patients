@@ -1,6 +1,6 @@
 <?php
     $request = $_REQUEST; //a PHP Super Global variable which used to collect data after submitting it from the form
-    $patientsID = $request['patients_id']; //using it to get  the record
+    $id = $request['patients_id']; //using it to get  the record
    
     // set
     $servername = "localhost" ; 
@@ -17,7 +17,7 @@
 
 
       //set delete sql data
-      $sql = "DELETE FROM patients_id WHERE id = '".$id."' ";
+      $sql = "DELETE FROM patients WHERE id = '".$id."' ";
 
       //process the query
       if($mysqli->query($sql)){

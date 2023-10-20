@@ -12,7 +12,7 @@
     }
 
     //insert sql
-    $sql = "SELECT * FROM patients ";
+    $sql = "SELECT * FROM patients";
 
     //process the query -> save data
     $results = $mysqli->query($sql);

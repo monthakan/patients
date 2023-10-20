@@ -13,14 +13,29 @@
     <title>ระบบจัดการผู้ป่วย</title>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6iOoYdrNDNaa0KNSDT47__mA8JnfFTXKUpQ&usqp=CAU" alt="" width="190" height="50">
+          </a>
+            <!-- <form class="d-flex">
+                <button class="btn btn-outline-success" type="submit">LOGIN</button>
+            </form> -->
+          </div>
+        </div>
+      </nav>
     <div class="container">
+        <div class="nav">
+            <img src="https://trceid.org/home" alt="">
+        </div>
+
         <h2> ระบบจัดการผู้ป่วย </h2>
         <div class="row">
             <div class="col-md-4">
             <form action="save.php" id="form">
                 <div class="form-group">
                     <h4>ประวัติส่วนตัว</h4>
-                    <label for="id">LABID : </label>
+                    <label for="sample">LABID : </label>
                     <input class="form-control" type="text" name="sample" required>
                 </div>
                 <div class="form-group">
@@ -29,6 +44,9 @@
                         <option value="นาย">นาย</option>
                         <option value="นาง">นาง</option>
                         <option value="นางสาว">นางสาว</option>
+                        <option value="Mr.">Mr.</option>
+                        <option value="Mrs.">Mrs.</option>
+                        <option value="Miss">Miss</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -63,16 +81,16 @@
                     <input class="form-control" type="number" name="mmse" min="0">
                 </div>
                 <div class="form-group">
-                    <label for="blood_collection">Blood Collection : </label>
-                    <input class="form-control" type="date" name="blood_collection">
+                    <label for="bloodformattedDate">Blood Collection : </label>
+                    <input class="form-control" type="date" name="bloodformattedDate">
                 </div>
                 <div class="form-group">
-                    <label for="report_date">Report Date : </label>
-                    <input class="form-control" type="date" name="report_date">
+                    <label for="reportformattedDate">Report Date : </label>
+                    <input class="form-control" type="date" name="reportformattedDate">
                 </div>
                 <div class="form-group">
                     <label for="source">Source : </label>
-                    <input class="form-control" type="text" name="source" min="0">
+                    <input class="form-control" type="text" name="source">
                     <button type="button" class="btn btn-primary" id="btnSubmit">Submit</button>
                 </div>
             </form>
@@ -95,29 +113,33 @@
 
                 <!-- Modal body -->
                 <div class="modal-body">
-                    <form action="update.php" id="update-form">
+                    <form action="update.php" id="edit-form">
+                        <input class="form-control" type="hidden" name="id">
                         <div class="form-group">
                             <h4>ประวัติส่วนตัว</h4>
-                            <label for="id">LABID : </label>
-                            <input class="form-control" type="text" name="sample" required>
+                            <label for="sample">LABID : </label>
+                            <input class="form-control" type="text" name="sample">
                         </div>
                         <div class="form-group">
                             <label for="title">คำนำหน้าชื่อ :</label>
-                            <select name="title" id="title" required>
-                                <option value="title">นาย</option>
-                                <option value="title">นาง</option>
-                                <option value="title">นางสาว</option>
+                            <select name="title" id="title">
+                                <option value="นาย">นาย</option>
+                                <option value="นาง">นาง</option>
+                                <option value="นางสาว">นางสาว</option>
+                                <option value="Mr.">Mr.</option>
+                                <option value="Mrs.">Mrs.</option>
+                                <option value="Miss">Miss</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="title">ชื่อ :</label>
-                            <input class="form-control" type="text" name="first_name" required>
-                            <label for="title">นามสกุล :</label>
-                            <input class="form-control" type="text" name="surname" required>
+                            <label for="first_name">ชื่อ :</label>
+                            <input class="form-control" type="text" name="first_name" >
+                            <label for="surname">นามสกุล :</label>
+                            <input class="form-control" type="text" name="surname" >
                         </div>
                         <div class="form-group">
                             <label for="age"> อายุ :</label>
-                            <input class="form-control" type="number" name="age" min="1" max="120">
+                            <input class="form-control" type="number" name="age" max="120">
                         </div>
                         <div class="form-group">
                             <label for="tel"> เบอร์โทรติดต่อ :</label>
@@ -134,23 +156,23 @@
                         <div class="form-group">
                             <h4> LAB Results</h4>
                             <label for="ocdr">oCDR : </label>
-                            <input class="form-control" type="number" name="ocdr" min="0" step="0.1">
+                            <input class="form-control" type="number" name="ocdr" step="0.1">
                         </div>
                         <div class="form-group">
                             <label for="mmse">MMSE : </label>
-                            <input class="form-control" type="number" name="mmse" min="0">
+                            <input class="form-control" type="number" name="mmse">
                         </div>
                         <div class="form-group">
-                            <label for="blood_collection">Blood Collection : </label>
-                            <input class="form-control" type="date" name="blood_collection" min="0">
+                            <label for="bloodformattedDate">Blood Collection : </label>
+                            <input class="form-control" type="date" name="bloodformattedDate">
                         </div>
                         <div class="form-group">
-                            <label for="report_date">Report Date : </label>
-                            <input class="form-control" type="date" name="report_date" min="0">
+                            <label for="reportformattedDate">Report Date : </label>
+                            <input class="form-control" type="date" name="reportformattedDate">
                         </div>
                         <div class="form-group">
                             <label for="source">Source : </label>
-                            <input class="form-control" type="text" name="source" min="0">
+                            <input class="form-control" type="text" name="source" >
                         </div>
                         <button type="button" class="btn btn-primary" id="btnUpdateSubmit">Update</button>
 					  	<button type="button" class="btn btn-danger float-right" data-dismiss="modal">Close</button>
@@ -163,10 +185,10 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<!-- Popper JS -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	<!-- Bootstrap JS -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-	<!-- Sweetalert2 JS -->
-	<script src="assets/plugins/sweetalert2/sweetalert2.min.js"></script>
+	<!-- Bootstrap JS  -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
+	 <!--  Sweetalert2 JS -->
+	<script src="assets/plugins/sweetalert2/sweetalert2.min.js"></script> 
 	<!-- Page Script -->
 	<script src="assets/js/scripts.js?v=20231018"></script>
     

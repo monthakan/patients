@@ -8,12 +8,14 @@
     $age = $request['age'];
     $ocdr = $request['ocdr'];
     $mmse = $request['mmse'];
-    $blood_collection = date('Y-m-d', $request['blood_collection']);
-    $report_date = date('Y-m-d', $request['report_date']);
-    $source = $request['$source'];
+    $blood_collection = new DateTime($request['blood_collection']);
+    $report_date = new DateTime($request['report_date']);
+    $source = $request['source'];
     $tel = $request['tel'];
     $teltwo = $request['teltwo'];
     $lineid = $request['lineid'];
+    $bloodformattedDate = $blood_collection->format('Y-m-d');
+    $reportformattedDate = $report_date->format('Y-m-d');
     // $creation_date = $request['creation_date']; 
    
     // set
@@ -29,8 +31,8 @@
         exit();
       }
 
-      $sql = "INSERT INTO patients (sample, title, first_name, surname, age, ocdr, mmse, blood_collection, report_date, source, tel, teltwo, lineid)
-      VALUES ('".$sample."', '".$title."', '".$first_name."', '".$surname."', '".$age."','".$ocdr."','".$mmse."' ,'".$blood_collection."', '".$report_date."','".$source."','".$tel."','".$teltwo."' ,'".$lineid."')";
+      $sql = "INSERT INTO patients ( title, sample, first_name, surname, age, ocdr, mmse, blood_collection, report_date, source, tel, teltwo, lineid)
+      VALUES ('".$title."', '".$sample."', '".$first_name."', '".$surname."', '".$age."','".$ocdr."','".$mmse."' ,'".$bloodformattedDate."', '".$reportformattedDate."','".$source."','".$tel."','".$teltwo."' ,'".$lineid."')";
     
       // Process the query so that we will save the date of birth
       if ($mysqli->query($sql)) {
